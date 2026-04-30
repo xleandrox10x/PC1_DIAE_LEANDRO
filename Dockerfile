@@ -1,11 +1,5 @@
-FROM python:3.10
+FROM nginx:alpine
 
-WORKDIR /app
+COPY . /usr/share/nginx/html
 
-COPY . .
-
-RUN pip install --no-cache-dir -r requisitos.txt
-
-EXPOSE 8080
-
-CMD ["streamlit", "run", "pc1.py", "--server.address=0.0.0.0"]
+EXPOSE 80
